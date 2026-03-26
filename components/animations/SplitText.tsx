@@ -110,14 +110,22 @@ export default function SplitText({
     }
   }, { dependencies: [text, delay, duration, ease, splitType, JSON.stringify(from), JSON.stringify(to), threshold, rootMargin, fontsLoaded], scope: ref })
 
-  const Tag = tag as keyof JSX.IntrinsicElements
-  return (
-    <Tag
-      ref={ref as React.Ref<HTMLHeadingElement>}
-      className={`split-parent ${className}`}
-      style={{ textAlign, overflow: 'hidden', display: 'inline-block', whiteSpace: 'normal', wordWrap: 'break-word', willChange: 'transform, opacity' }}
-    >
-      {text}
-    </Tag>
-  )
+  const Tag = tag as React.ElementType
+
+return (
+  <Tag
+    ref={ref as any}
+    className={`split-parent ${className}`}
+    style={{
+      textAlign,
+      overflow: 'hidden',
+      display: 'inline-block',
+      whiteSpace: 'normal',
+      wordWrap: 'break-word',
+      willChange: 'transform, opacity'
+    }}
+  >
+    {text}
+  </Tag>
+)
 }
